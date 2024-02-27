@@ -1,6 +1,8 @@
 import { AppBar, Toolbar, makeStyles } from "@material-ui/core";
 import Title from "./Title";
 import Notifications from "./Notifications";
+import MenuCategories from "../menus/MenuCategories";
+import MenuAccount from "../menus/MenuAccount";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,8 +17,10 @@ const NavBar: React.FunctionComponent = () => {
     <div className={classes.root}>
       <AppBar position="fixed">
         <Toolbar>
+          <MenuCategories />
           <Title />
           <Notifications />
+          <MenuAccount />
         </Toolbar>
       </AppBar>
     </div>
