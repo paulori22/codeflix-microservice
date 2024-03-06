@@ -3,6 +3,7 @@ import { IconButton, Menu as MuiMenu, MenuItem } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import routes, { MyRouteProps } from "../../routes";
 import { Link } from "react-router-dom";
+import useMenu from "../../hooks/useMenu";
 
 const listRoutes = {
   home: "Inicio",
@@ -13,16 +14,7 @@ const menuRoutes = routes.filter((route) =>
 );
 
 const MenuCategories: React.FunctionComponent = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-
-  const handleOpen = (event: any) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  const { open, anchorEl, handleOpen, handleClose } = useMenu();
 
   return (
     <div>

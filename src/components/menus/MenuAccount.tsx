@@ -1,29 +1,17 @@
 import React, { useState } from "react";
 import {
-  IconButton,
   Menu as MuiMenu,
   MenuItem,
   Box,
   ListItemIcon,
   ListItemText,
 } from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
 import Arrow from "@material-ui/icons/KeyboardArrowDown";
-import { MyRouteProps } from "../../routes";
-import { Link } from "react-router-dom";
 import { ExitToApp } from "@material-ui/icons";
+import useMenu from "../../hooks/useMenu";
 
 const MenuAccount: React.FunctionComponent = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-
-  const handleOpen = (event: any) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  const { open, anchorEl, handleOpen, handleClose } = useMenu();
 
   return (
     <div>
