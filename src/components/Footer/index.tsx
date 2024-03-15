@@ -1,11 +1,12 @@
 import { AppBar, BottomNavigation, makeStyles } from "@material-ui/core";
-import React from "react";
+import React, { useCallback, useState } from "react";
 import FooterItem from "./FooterItem";
 import {
   Home as HomeIcon,
   Notifications as NotificationsIcon,
   Person as PersonIcon,
 } from "@material-ui/icons";
+import DialogMyAccount from "../DialogMyAccount";
 
 const useSyles = makeStyles((theme) => ({
   root: {
@@ -26,6 +27,16 @@ const useSyles = makeStyles((theme) => ({
 const Footer: React.FunctionComponent = () => {
   const classes = useSyles();
 
+  const [openDialogAccount, setOpenDialogAccount] = useState(false);
+
+  const onClickMyAccount = useCallback(() => {
+    setOpenDialogAccount(true);
+  }, []);
+
+  const onDialogAccountClose = useCallback(() => {
+    setOpenDialogAccount(false);
+  }, []);
+
   return (
     <div className={classes.root}>
       <AppBar
@@ -41,9 +52,18 @@ const Footer: React.FunctionComponent = () => {
             icon={<HomeIcon />}
           />
           <FooterItem label="Notificações" icon={<NotificationsIcon />} />
-          <FooterItem label="Conta" value="home" icon={<PersonIcon />} />
+          <FooterItem
+            label="Conta"
+            value="home"
+            icon={<PersonIcon />}
+            onClick={onClickMyAccount}
+          />
         </BottomNavigation>
       </AppBar>
+      <DialogMyAccount
+        open={openDialogAccount}
+        onClose={onDialogAccountClose}
+      />
     </div>
   );
 };
