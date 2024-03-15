@@ -9,6 +9,7 @@ import {
 import DialogMyAccount from "../DialogMyAccount";
 import { matchPath, useHistory, useLocation } from "react-router-dom";
 import routes from "../../routes";
+import FooterCategoriesItem from "./FooterCategoriesItem";
 
 const useSyles = makeStyles((theme) => ({
   root: {
@@ -68,11 +69,7 @@ const Footer: React.FunctionComponent = () => {
             icon={<HomeIcon />}
             onClick={goToHome}
           />
-          <FooterItem
-            label="Categorias"
-            value="categories"
-            icon={<HomeIcon />}
-          />
+          <FooterCategoriesItem currentRoute={currentRoute} />
           <FooterItem label="Notificações" icon={<NotificationsIcon />} />
           <FooterItem
             label="Conta"
