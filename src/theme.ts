@@ -3,6 +3,9 @@ import { Theme, createMuiTheme } from "@material-ui/core/styles";
 import { PaletteOptions } from "@material-ui/core/styles/createPalette";
 
 const palette: PaletteOptions = {
+  primary: {
+    main: red["500"],
+  },
   background: {
     default: "#1f1f1f",
   },
@@ -34,6 +37,11 @@ const theme = createMuiTheme({
     MuiAppBar: {
       colorPrimary: {
         backgroundColor: palette.background?.default,
+      },
+    },
+    MuiDivider: {
+      root: {
+        backgroundColor: palette.text?.secondary,
       },
     },
     MuiDialog: {

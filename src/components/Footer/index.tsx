@@ -1,5 +1,5 @@
 import { AppBar, BottomNavigation, makeStyles } from "@material-ui/core";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import FooterItem from "./FooterItem";
 import {
   Home as HomeIcon,
@@ -7,6 +7,8 @@ import {
   Person as PersonIcon,
 } from "@material-ui/icons";
 import DialogMyAccount from "../DialogMyAccount";
+import { matchPath, useHistory, useLocation } from "react-router-dom";
+import routes from "../../routes";
 
 const useSyles = makeStyles((theme) => ({
   root: {
@@ -28,6 +30,17 @@ const Footer: React.FunctionComponent = () => {
   const classes = useSyles();
 
   const [openDialogAccount, setOpenDialogAccount] = useState(false);
+  const { push } = useHistory();
+  const { pathname } = useLocation();
+
+  const currentRoute = useMemo(
+    () => routes.find((r) => matchPath(pathname, r))?.name,
+    [pathname]
+  );
+
+  const goToHome = useCallback(() => {
+    push("/");
+  }, [push]);
 
   const onClickMyAccount = useCallback(() => {
     setOpenDialogAccount(true);
@@ -44,8 +57,17 @@ const Footer: React.FunctionComponent = () => {
         position="fixed"
         color="primary"
       >
-        <BottomNavigation className={classes.bottomNavigation} showLabels>
-          <FooterItem label="Home" value="home" icon={<HomeIcon />} />
+        <BottomNavigation
+          className={classes.bottomNavigation}
+          showLabels
+          value={currentRoute}
+        >
+          <FooterItem
+            label="Home"
+            value="home"
+            icon={<HomeIcon />}
+            onClick={goToHome}
+          />
           <FooterItem
             label="Categorias"
             value="categories"
@@ -54,7 +76,6 @@ const Footer: React.FunctionComponent = () => {
           <FooterItem label="Notificações" icon={<NotificationsIcon />} />
           <FooterItem
             label="Conta"
-            value="home"
             icon={<PersonIcon />}
             onClick={onClickMyAccount}
           />
