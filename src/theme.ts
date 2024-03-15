@@ -36,6 +36,11 @@ const theme = createMuiTheme({
         backgroundColor: palette.background?.default,
       },
     },
+    MuiDialog: {
+      paper: {
+        backgroundColor: palette.background?.default,
+      },
+    },
   },
 });
 
