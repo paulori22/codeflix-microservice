@@ -1,10 +1,11 @@
+import Page from "../components/Page";
 
 const Home: React.FunctionComponent = (props) => {
-    return (
-        <div>
-            Home page
-        </div>
-    );
+  return (
+    <Page>
+      <p>Home page</p>
+    </Page>
+  );
 };
 
 export default Home;
