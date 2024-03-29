@@ -1,9 +1,9 @@
-import Slider, { Settings } from "react-slick";
+import Slider, { SliderProps } from "../components/Slider";
 import Page from "../components/Page";
 import SliderArrow from "../components/Slider/SliderArrow";
 
 const Home: React.FunctionComponent = (props) => {
-  var settings: Settings = {
+  var settings: SliderProps = {
     dots: true,
     infinite: true,
     speed: 500,
