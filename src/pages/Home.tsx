@@ -1,6 +1,6 @@
 import Slider, { Settings } from "react-slick";
 import Page from "../components/Page";
-import SliderArrowUnstyled from "../components/Slider/SliderArrowUnstyled";
+import SliderArrow from "../components/Slider/SliderArrow";
 
 const Home: React.FunctionComponent = (props) => {
   var settings: Settings = {
@@ -10,8 +10,8 @@ const Home: React.FunctionComponent = (props) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
-    prevArrow: <SliderArrowUnstyled dir="left" />,
-    nextArrow: <SliderArrowUnstyled dir="right" />,
+    prevArrow: <SliderArrow dir="left" />,
+    nextArrow: <SliderArrow dir="right" />,
   };
   return (
     <Page>
