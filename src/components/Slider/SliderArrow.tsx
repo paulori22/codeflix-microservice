@@ -6,9 +6,11 @@ import { CustomArrowProps } from "react-slick";
 const useStyles = makeStyles((theme) => ({
   root: (props: SliderArrowProps) => {
     const style = {
+      display: "flex",
       height: "100%",
       position: "absolute" as any,
       opacity: 0,
+      zIndex: 999,
     };
     if (props.dir === "right") {
       (style as any).right = 0;
