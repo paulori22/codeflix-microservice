@@ -1,8 +1,40 @@
+import Slider, { Settings } from "react-slick";
 import Page from "../components/Page";
+import SliderArrowUnstyled from "../components/Slider/SliderArrowUnstyled";
 
 const Home: React.FunctionComponent = (props) => {
+  var settings: Settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    prevArrow: <SliderArrowUnstyled dir="left" />,
+    nextArrow: <SliderArrowUnstyled dir="right" />,
+  };
   return (
     <Page>
+      <Slider {...settings}>
+        <div>
+          <h3>1</h3>
+        </div>
+        <div>
+          <h3>2</h3>
+        </div>
+        <div>
+          <h3>3</h3>
+        </div>
+        <div>
+          <h3>4</h3>
+        </div>
+        <div>
+          <h3>5</h3>
+        </div>
+        <div>
+          <h3>6</h3>
+        </div>
+      </Slider>
       <p>
         Vitae congue eu consequat ac. Cursus turpis massa tincidunt dui ut. Eget
         sit amet tellus cras adipiscing. Arcu risus quis varius quam quisque.
