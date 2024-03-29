@@ -1,6 +1,7 @@
 import { makeStyles } from "@material-ui/core";
 import SliderArrowUnstyled from "./SliderArrowUnstyled";
 import clsx from "clsx";
+import { CustomArrowProps } from "react-slick";
 
 const useStyles = makeStyles((theme) => ({
   root: (props: SliderArrowProps) => {
@@ -24,12 +25,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-interface SliderArrowProps {
+interface SliderArrowProps extends CustomArrowProps {
   dir: "left" | "right";
 }
 
 const SliderArrow: React.FunctionComponent<SliderArrowProps> = (props) => {
-  const { dir } = props;
+  const { dir, className, onClick } = props;
   const classes = useStyles(props);
   return (
     <div
@@ -40,7 +41,11 @@ const SliderArrow: React.FunctionComponent<SliderArrowProps> = (props) => {
     >
       <SliderArrowUnstyled
         dir={dir}
-        IconButtonProps={{ disableTouchRipple: true }}
+        IconButtonProps={{
+          onClick,
+          disabled: className?.includes("disabled"),
+          disableTouchRipple: true,
+        }}
         classes={{ arrow: classes.arrow }}
       />
     </div>
