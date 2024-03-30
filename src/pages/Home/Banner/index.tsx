@@ -1,13 +1,14 @@
 import { useMemo } from "react";
-import Slider, { SliderProps } from "../components/Slider";
+import Slider, { SliderProps } from "../../../components/Slider";
 import { makeStyles } from "@material-ui/core";
-import Page from "../components/Page";
-import SliderArrow from "../components/Slider/SliderArrow";
-import useIsSmallWindow from "../hooks/useIsSmallWindow";
-import VideoThumbnail from "../components/Video/VideoThumbnail";
+import SliderArrow from "../../../components/Slider/SliderArrow";
+import useIsSmallWindow from "../../../hooks/useIsSmallWindow";
+import VideoThumbnail from "../../../components/Video/VideoThumbnail";
 
-import bannerHalf from "../static/img/1-vid-banner-half-01.jpg";
-import banner from "../static/img/1-vid-banner-01.jpg";
+import bannerHalf from "../../../static/img/1-vid-banner-half-01.jpg";
+import banner from "../../../static/img/1-vid-banner-01.jpg";
+import Rating from "../../../components/Video/Rating";
+import Category from "../../../components/Video/Category";
 
 const useStyles = makeStyles((theme) => ({
   rootImage: {
@@ -51,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Home: React.FunctionComponent = (props) => {
+const Banner: React.FunctionComponent = (props) => {
   const classes = useStyles();
   const sliderClass = classes.slider;
   const isSmallWindow = useIsSmallWindow();
@@ -72,48 +73,24 @@ const Home: React.FunctionComponent = (props) => {
     [isSmallWindow, sliderClass]
   );
   const thumbnail = isSmallWindow ? bannerHalf : banner;
+
   return (
-    <Page>
+    <div>
+      <Rating rating="18" />
+      <Category>The Universe</Category>
       <Slider {...sliderProps}>
-        <VideoThumbnail
-          classes={{ root: classes.rootImage, image: classes.image }}
-          ImgProps={{
-            src: thumbnail,
-          }}
-        />
-        <VideoThumbnail
-          classes={{ root: classes.rootImage, image: classes.image }}
-          ImgProps={{
-            src: thumbnail,
-          }}
-        />
-        <VideoThumbnail
-          classes={{ root: classes.rootImage, image: classes.image }}
-          ImgProps={{
-            src: thumbnail,
-          }}
-        />
-        <VideoThumbnail
-          classes={{ root: classes.rootImage, image: classes.image }}
-          ImgProps={{
-            src: thumbnail,
-          }}
-        />
-        <VideoThumbnail
-          classes={{ root: classes.rootImage, image: classes.image }}
-          ImgProps={{
-            src: thumbnail,
-          }}
-        />
-        <VideoThumbnail
-          classes={{ root: classes.rootImage, image: classes.image }}
-          ImgProps={{
-            src: thumbnail,
-          }}
-        />
+        {[0, 1, 2, 3, 4, 5].map((v) => (
+          <VideoThumbnail
+            key={v}
+            classes={{ root: classes.rootImage, image: classes.image }}
+            ImgProps={{
+              src: thumbnail,
+            }}
+          />
+        ))}
       </Slider>
-    </Page>
+    </div>
   );
 };
 
-export default Home;
+export default Banner;
