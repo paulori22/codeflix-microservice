@@ -9,9 +9,11 @@ import bannerHalf from "../../../static/img/1-vid-banner-half-01.jpg";
 import banner from "../../../static/img/1-vid-banner-01.jpg";
 import Rating from "../../../components/Video/Rating";
 import Category from "../../../components/Video/Category";
+import BannerRating from "./BannerRating";
 
 const useStyles = makeStyles((theme) => ({
   rootImage: {
+    position: "relative",
     marginRight: "4px",
     "&:focus": {
       outlineColor: theme.palette.text.primary,
@@ -79,14 +81,16 @@ const Banner: React.FunctionComponent = (props) => {
       <Rating rating="18" />
       <Category>The Universe</Category>
       <Slider {...sliderProps}>
-        {[0, 1, 2, 3, 4, 5].map((v) => (
+        {Array.from(new Array(6).keys()).map((v) => (
           <VideoThumbnail
             key={v}
             classes={{ root: classes.rootImage, image: classes.image }}
             ImgProps={{
               src: thumbnail,
             }}
-          />
+          >
+            <BannerRating rating="14" />
+          </VideoThumbnail>
         ))}
       </Slider>
     </div>

@@ -33,7 +33,7 @@ const backgroundColors = {
   "18": "#000000",
 };
 
-interface RatingProps {
+export interface RatingProps {
   rating: "L" | "10" | "12" | "14" | "16" | "18";
   className?: string;
   size?: { width: string; height: string };
