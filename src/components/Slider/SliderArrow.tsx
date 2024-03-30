@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core";
+import { fade, makeStyles } from "@material-ui/core";
 import SliderArrowUnstyled from "./SliderArrowUnstyled";
 import clsx from "clsx";
 import { CustomArrowProps } from "react-slick";
@@ -17,6 +17,12 @@ const useStyles = makeStyles((theme) => ({
       (style as any).top = 0;
     }
     return style;
+  },
+  iconButtonRoot: {
+    borderRadius: 0,
+    "&:hover": {
+      backgroundColor: fade(theme.palette.background.default, 0.35),
+    },
   },
   arrow: {
     fontSize: 50,
@@ -44,6 +50,7 @@ const SliderArrow: React.FunctionComponent<SliderArrowProps> = (props) => {
       <SliderArrowUnstyled
         dir={dir}
         IconButtonProps={{
+          classes: { root: classes.iconButtonRoot },
           onClick,
           disabled: className?.includes("disabled"),
           disableTouchRipple: true,
