@@ -7,9 +7,8 @@ import VideoThumbnail from "../../../components/Video/VideoThumbnail";
 
 import bannerHalf from "../../../static/img/1-vid-banner-half-01.jpg";
 import banner from "../../../static/img/1-vid-banner-01.jpg";
-import Rating from "../../../components/Video/Rating";
-import Category from "../../../components/Video/Category";
 import BannerRating from "./BannerRating";
+import BannerCategory from "./BannerCategory";
 
 const useStyles = makeStyles((theme) => ({
   rootImage: {
@@ -78,8 +77,6 @@ const Banner: React.FunctionComponent = (props) => {
 
   return (
     <div>
-      <Rating rating="18" />
-      <Category>The Universe</Category>
       <Slider {...sliderProps}>
         {Array.from(new Array(6).keys()).map((v) => (
           <VideoThumbnail
@@ -90,6 +87,7 @@ const Banner: React.FunctionComponent = (props) => {
             }}
           >
             <BannerRating rating="14" />
+            <BannerCategory>Documentário</BannerCategory>
           </VideoThumbnail>
         ))}
       </Slider>
