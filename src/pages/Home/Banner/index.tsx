@@ -10,6 +10,7 @@ import banner from "../../../static/img/1-vid-banner-01.jpg";
 import BannerRating from "./BannerRating";
 import BannerCategory from "./BannerCategory";
 import VideoLink from "../../../components/Video/VideoLink";
+import VideoActions from "./VideoActions";
 
 const useStyles = makeStyles((theme) => ({
   rootImage: {
@@ -89,6 +90,7 @@ const Banner: React.FunctionComponent = (props) => {
           >
             <BannerRating rating="14" />
             <BannerCategory>Documentário</BannerCategory>
+            <VideoActions />
           </VideoThumbnail>
         ))}
       </Slider>
