@@ -1,4 +1,5 @@
 import { makeStyles, Typography } from "@material-ui/core";
+import clsx from "clsx";
 
 const useStyles = makeStyles({
   root: {
@@ -7,13 +8,15 @@ const useStyles = makeStyles({
   },
 });
 
-export interface TitleProps {}
+export interface TitleProps {
+  className?: string;
+}
 
 const Title: React.FunctionComponent<TitleProps> = (props) => {
-  const { children } = props;
+  const { className, children } = props;
   const classes = useStyles(props);
   return (
-    <Typography component="h3" className={classes.root}>
+    <Typography component="h3" className={clsx(classes.root, className)}>
       {children}
     </Typography>
   );

@@ -91,7 +91,7 @@ const Banner: React.FunctionComponent = (props) => {
           >
             <VideoContent
               video={{
-                title: "The Unviverse",
+                title: "The Universe",
                 id: "test",
                 categories: [
                   { id: "cate1", name: "Documentário", is_active: true },
@@ -102,7 +102,6 @@ const Banner: React.FunctionComponent = (props) => {
           </VideoThumbnail>
         ))}
       </Slider>
-      <VideoLink>Detalhes</VideoLink>
     </div>
   );
 };
