@@ -11,6 +11,7 @@ import BannerRating from "./BannerRating";
 import BannerCategory from "./BannerCategory";
 import VideoLink from "../../../components/Video/VideoLink";
 import VideoActions from "./VideoActions";
+import VideoContent from "./VideoContent";
 
 const useStyles = makeStyles((theme) => ({
   rootImage: {
@@ -88,9 +89,16 @@ const Banner: React.FunctionComponent = (props) => {
               src: thumbnail,
             }}
           >
+            <VideoContent
+              video={{
+                title: "The Unviverse",
+                id: "test",
+                categories: [
+                  { id: "cate1", name: "Documentário", is_active: true },
+                ],
+              }}
+            />
             <BannerRating rating="14" />
-            <BannerCategory>Documentário</BannerCategory>
-            <VideoActions />
           </VideoThumbnail>
         ))}
       </Slider>
