@@ -8,10 +8,8 @@ import VideoThumbnail from "../../../components/Video/VideoThumbnail";
 import bannerHalf from "../../../static/img/1-vid-banner-half-01.jpg";
 import banner from "../../../static/img/1-vid-banner-01.jpg";
 import BannerRating from "./BannerRating";
-import BannerCategory from "./BannerCategory";
-import VideoLink from "../../../components/Video/VideoLink";
-import VideoActions from "./VideoActions";
 import VideoContent from "./VideoContent";
+import VideoActionsMobile from "./VideoActions/VideoActionsMobile";
 
 const useStyles = makeStyles((theme) => ({
   rootImage: {
@@ -64,7 +62,7 @@ const Banner: React.FunctionComponent = (props) => {
     () => ({
       className: sliderClass,
       centerMode: true,
-      dots: true,
+      dots: false,
       infinite: true,
       speed: 500,
       slidesToShow: 1,
@@ -102,6 +100,7 @@ const Banner: React.FunctionComponent = (props) => {
           </VideoThumbnail>
         ))}
       </Slider>
+      <VideoActionsMobile />
     </div>
   );
 };

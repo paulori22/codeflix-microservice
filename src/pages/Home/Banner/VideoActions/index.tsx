@@ -1,5 +1,10 @@
 import { makeStyles } from "@material-ui/core";
-import VideoLink from "../../../components/Video/VideoLink";
+import VideoLink from "../../../../components/Video/VideoLink";
+import {
+  AddCircleOutline,
+  Info as InfoIcon,
+  PlayCircleOutline,
+} from "@material-ui/icons";
 
 const useStyles = makeStyles({
   root: {
@@ -16,9 +21,17 @@ const VideoActions: React.FunctionComponent<VideoActionsProps> = (props) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <VideoLink>Play</VideoLink>
-      <VideoLink>Minha Lista</VideoLink>
-      <VideoLink>Info</VideoLink>
+      <VideoLink>
+        <PlayCircleOutline />
+        Play
+      </VideoLink>
+      <VideoLink>
+        <AddCircleOutline />
+        Minha Lista
+      </VideoLink>
+      <VideoLink>
+        <InfoIcon /> Info
+      </VideoLink>
     </div>
   );
 };
