@@ -1,5 +1,4 @@
 import { makeStyles } from "@material-ui/core";
-import Rating, { RatingProps } from "../../../components/Video/Rating";
 import Category, { CategoryProps } from "../../../components/Video/Category";
 
 const useStyles = makeStyles((theme) => ({

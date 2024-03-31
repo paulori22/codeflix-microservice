@@ -9,6 +9,7 @@ import bannerHalf from "../../../static/img/1-vid-banner-half-01.jpg";
 import banner from "../../../static/img/1-vid-banner-01.jpg";
 import BannerRating from "./BannerRating";
 import BannerCategory from "./BannerCategory";
+import VideoLink from "../../../components/Video/VideoLink";
 
 const useStyles = makeStyles((theme) => ({
   rootImage: {
@@ -91,6 +92,7 @@ const Banner: React.FunctionComponent = (props) => {
           </VideoThumbnail>
         ))}
       </Slider>
+      <VideoLink>Detalhes</VideoLink>
     </div>
   );
 };
