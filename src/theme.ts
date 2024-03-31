@@ -88,3 +88,5 @@ export const menuTheme = (theme: Theme): Theme => ({
     },
   },
 });
+
+export const BANNER_VIDEO_ACTIONS_MEDIA_QUERY = 700;

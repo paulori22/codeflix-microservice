@@ -25,3 +25,4 @@ yarn-error.log*
 .env
 .history/
 .npm-cache
+src/static/img/1-vid-banner*
