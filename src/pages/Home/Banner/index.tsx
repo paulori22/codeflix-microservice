@@ -75,7 +75,7 @@ const Banner: React.FunctionComponent = (props) => {
     }),
     [isSmallWindow, sliderClass]
   );
-  const thumbnail = isSmallWindow ? bannerHalf : banner;
+  const thumbnail = isSmallWindow ? banner : bannerHalf;
 
   return (
     <div>
