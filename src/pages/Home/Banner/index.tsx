@@ -10,6 +10,7 @@ import banner from "../../../static/img/1-vid-banner-01.jpg";
 import BannerRating from "./BannerRating";
 import VideoContent from "./VideoContent";
 import VideoActionsMobile from "./VideoActions/VideoActionsMobile";
+import SliderStepper from "./SliderStepper";
 
 const useStyles = makeStyles((theme) => ({
   rootImage: {
@@ -100,6 +101,7 @@ const Banner: React.FunctionComponent = (props) => {
           </VideoThumbnail>
         ))}
       </Slider>
+      {!isSmallWindow && <SliderStepper maxSteps={5} activeStep={0} />}
       <VideoActionsMobile />
     </div>
   );
