@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import Slider, { SliderProps } from "../../../components/Slider";
 import { makeStyles } from "@material-ui/core";
 import SliderArrow from "../../../components/Slider/SliderArrow";
@@ -59,6 +59,7 @@ const Banner: React.FunctionComponent = (props) => {
   const classes = useStyles();
   const sliderClass = classes.slider;
   const isSmallWindow = useIsSmallWindow();
+  const [activeIndex, setActiveIndex] = useState(0);
   const sliderProps: SliderProps = useMemo(
     () => ({
       className: sliderClass,
@@ -72,6 +73,9 @@ const Banner: React.FunctionComponent = (props) => {
       arrows: !isSmallWindow,
       prevArrow: <SliderArrow dir="left" />,
       nextArrow: <SliderArrow dir="right" />,
+      beforeChange: (oldIndex, nextIndex) => {
+        setActiveIndex(nextIndex);
+      },
     }),
     [isSmallWindow, sliderClass]
   );
@@ -80,28 +84,35 @@ const Banner: React.FunctionComponent = (props) => {
   return (
     <div>
       <Slider {...sliderProps}>
-        {Array.from(new Array(6).keys()).map((v) => (
-          <VideoThumbnail
-            key={v}
-            classes={{ root: classes.rootImage, image: classes.image }}
-            ImgProps={{
-              src: thumbnail,
-            }}
-          >
-            <VideoContent
-              video={{
-                title: "The Universe",
-                id: "test",
-                categories: [
-                  { id: "cate1", name: "Documentário", is_active: true },
-                ],
+        {Array.from(new Array(6).keys()).map((v, index) => {
+          const show = activeIndex === index;
+          return (
+            <VideoThumbnail
+              key={v}
+              classes={{ root: classes.rootImage, image: classes.image }}
+              ImgProps={{
+                src: thumbnail,
               }}
-            />
-            <BannerRating rating="14" />
-          </VideoThumbnail>
-        ))}
+            >
+              {show && (
+                <VideoContent
+                  video={{
+                    title: "The Universe",
+                    id: "test",
+                    categories: [
+                      { id: "cate1", name: "Documentário", is_active: true },
+                    ],
+                  }}
+                />
+              )}
+              {show && <BannerRating rating="14" />}
+            </VideoThumbnail>
+          );
+        })}
       </Slider>
-      {!isSmallWindow && <SliderStepper maxSteps={5} activeStep={0} />}
+      {!isSmallWindow && (
+        <SliderStepper maxSteps={6} activeStep={activeIndex} />
+      )}
       <VideoActionsMobile />
     </div>
   );
