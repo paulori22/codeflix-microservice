@@ -4,6 +4,9 @@ const Sections: React.FunctionComponent = (props) => {
   return (
     <div>
       <SectionsSlide title="Documentário" videos={[]} />
+      <SectionsSlide title="Documentário" videos={[]} />
+      <SectionsSlide title="Documentário" videos={[]} />
+      <SectionsSlide title="Documentário" videos={[]} />
     </div>
   );
 };
