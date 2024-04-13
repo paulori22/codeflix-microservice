@@ -1,9 +1,10 @@
 import Page from "../components/Page";
+import VideoList from "../components/Video/VideoList";
 
 const VideosByCategory: React.FunctionComponent = (props) => {
   return (
     <Page>
-      <p>Video by category</p>
+      <VideoList videos={[]} />
     </Page>
   );
 };

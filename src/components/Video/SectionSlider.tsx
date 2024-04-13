@@ -42,7 +42,7 @@ const useSectionSliderStyles = makeStyles((theme) => ({
     margin: theme.spacing(0, 3),
 
     [theme.breakpoints.down(theme.breakpoints.values.mobile)]: {
-      margin: theme.spacing(0, 1),
+      margin: theme.spacing(2, 1),
     },
   },
   videoThumbnailRoot: {
